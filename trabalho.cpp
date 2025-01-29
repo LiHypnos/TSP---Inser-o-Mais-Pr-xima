@@ -105,8 +105,15 @@ vector<int> tspInsercaoBarata(const vector<xy>& pontos, vector<vector<float>>& d
     // Converte o ciclo para vetor usando os IDs originais
     vector<int> caminho;
     for (int indice : ciclo) caminho.push_back(ids[indice]);
-    caminho.push_back(caminho[0]);  // Fecha o ciclo
+
+    // Calcula a aresta final entre o último e o primeiro vértice do ciclo
+    float custoUltimaAresta = dist[ciclo.back()][ciclo.front()];
+    maiorAresta = max(maiorAresta, custoUltimaAresta);
+    // Fecha o ciclo corretamente
+    caminho.push_back(caminho[0]);
+
     return caminho;
+
 }
 
 int main() {
