@@ -11,8 +11,6 @@
 
 using namespace std;
 
-
-
 struct xy {
     float x, y;
 };
